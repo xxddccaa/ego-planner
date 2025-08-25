@@ -1,0 +1,38 @@
+{
+    // 配置文件版本号
+    "version": "0.2.0",
+    // 调试配置数组
+    "configurations": [
+        {
+            // 配置名称，启动时显示
+            "name": "调试 mockamap",
+            // 调试类型，C++ 选择 cppdbg
+            "type": "cppdbg",
+            // 启动方式，launch 表示启动新进程
+            "request": "launch",
+            // 可执行文件路径
+            "program": "${workspaceFolder}/my_project/build/MyProject",
+            // 传递给程序的命令行参数
+            "args": [],
+            // 是否在程序入口处暂停
+            "stopAtEntry": false,
+            // 调试时的工作目录
+            "cwd": "${workspaceFolder}/my_project/build",
+            // 传递给程序的环境变量
+            "environment": [],
+            // 是否使用外部终端
+            "externalConsole": false,
+            // 调试器类型，Linux 下用 gdb
+            "MIMode": "gdb",
+            // 调试器启动时的额外命令
+            "setupCommands": [
+                {
+                    // 启用 gdb 的漂亮打印，便于查看变量
+                    "description": "为 gdb 启用漂亮打印",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                }
+            ]
+        }
+    ]
+}
