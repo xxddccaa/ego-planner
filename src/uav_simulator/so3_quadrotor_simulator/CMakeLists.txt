@@ -49,3 +49,11 @@ target_link_libraries(quadrotor_simulator_so3
    ${catkin_LIBRARIES}
    quadrotor_dynamics
 )
+
+# Add test_dynamics executable
+add_executable(test_dynamics
+  src/test_dynamics/test_dynamics.cpp)
+
+target_link_libraries(test_dynamics
+   quadrotor_dynamics
+)

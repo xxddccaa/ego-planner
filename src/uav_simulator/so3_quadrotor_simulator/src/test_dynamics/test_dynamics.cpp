@@ -1,5 +1,6 @@
 #include "quadrotor_simulator/Quadrotor.h"
 #include <Eigen/Geometry>
+#include <iostream>
 
 int main(int argc, char **argv)
 {
