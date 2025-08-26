@@ -1,10 +1,38 @@
-.vscode/settings.json
-.catkin_workspace
+# IDE and editor files
+# .vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# ROS build directories
 build/
 devel/
+install/
+
+# Catkin workspace
+.catkin_workspace
+
+# Temporary files
 files/
-README.md
-src/CMakeLists.txt
-benchmark_haha.zip
-rebound_planner_BB.zip
+*.tmp
+*.log
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Archive files (if they contain large data)
+*.zip
+*.tar.gz
+*.rar
+
+# Backup files
+*.bak
+*.backup
 
