@@ -3,23 +3,33 @@
     "version": "0.2.0",
     // 调试配置数组
     "configurations": [
+        // 调试 ROS mockamap 节点
         {
             // 配置名称，启动时显示
-            "name": "调试 mockamap",
+            "name": "调试 ROS mockamap 节点",
             // 调试类型，C++ 选择 cppdbg
             "type": "cppdbg",
             // 启动方式，launch 表示启动新进程
             "request": "launch",
-            // 可执行文件路径
-            "program": "${workspaceFolder}/my_project/build/MyProject",
+            // 可执行文件路径 - 指向编译后的 ROS 节点
+            "program": "${workspaceFolder}/devel/lib/mockamap/mockamap_node",
             // 传递给程序的命令行参数
             "args": [],
             // 是否在程序入口处暂停
             "stopAtEntry": false,
             // 调试时的工作目录
-            "cwd": "${workspaceFolder}/my_project/build",
-            // 传递给程序的环境变量
-            "environment": [],
+            "cwd": "${workspaceFolder}",
+            // 传递给程序的环境变量 - 设置 ROS 环境
+            "environment": [
+                {
+                    "name": "ROS_MASTER_URI",
+                    "value": "http://localhost:11312"
+                },
+                {
+                    "name": "ROS_PACKAGE_PATH",
+                    "value": "${workspaceFolder}/src:${env:ROS_PACKAGE_PATH}"
+                }
+            ],
             // 是否使用外部终端
             "externalConsole": false,
             // 调试器类型，Linux 下用 gdb
@@ -32,7 +42,9 @@
                     "text": "-enable-pretty-printing",
                     "ignoreFailures": true
                 }
-            ]
+            ],
+            // 预启动任务 - 确保 ROS master 运行
+            "preLaunchTask": "启动 ROS master"
         }
     ]
 }

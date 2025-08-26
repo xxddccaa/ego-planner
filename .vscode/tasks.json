@@ -5,13 +5,48 @@
             "label": "catkin_make", 
             "type": "shell",  
             "command": "catkin_make",
-            "args": ["-DCMAKE_BUILD_TYPE=Release"],
+            "args": ["-DCMAKE_BUILD_TYPE=Debug"],
             "group": {"kind":"build","isDefault":true},
             "presentation": {
                 "reveal": "always"
             },
             "problemMatcher": "$msCompile"
         },
+        {
+            "label": "启动 ROS master",
+            "type": "shell",
+            "command": "roscore",
+            "args": ["-p", "11312"],
+            "isBackground": true,
+            "presentation": {
+                "reveal": "always",
+                "panel": "new"
+            },
+            "problemMatcher": {
+                "pattern": {
+                    "regexp": ".",
+                    "file": 1,
+                    "location": 2,
+                    "message": 3
+                },
+                "background": {
+                    "activeOnStart": true,
+                    "beginsPattern": ".*ROS Master.*",
+                    "endsPattern": ".*ROS Master.*"
+                }
+            }
+        },
+        {
+            "label": "编译 mockamap",
+            "type": "shell",
+            "command": "catkin_make",
+            "args": ["--pkg", "mockamap", "-DCMAKE_BUILD_TYPE=Debug"],
+            "group": "build",
+            "presentation": {
+                "reveal": "always"
+            },
+            "problemMatcher": "$msCompile"
+        }
     ]
 }
 

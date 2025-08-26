@@ -1,0 +1,18 @@
+<launch>
+  <node pkg="mockamap2" type="mockamap2_node" name="mockamap2_node" output="screen">
+    <!-- 地图参数 -->
+    <param name="resolution" type="double" value="0.1"/>
+    <param name="map_size_x" type="double" value="10.0"/>
+    <param name="map_size_y" type="double" value="10.0"/>
+    <param name="map_size_z" type="double" value="3.0"/>
+    <param name="update_freq" type="double" value="1.0"/>
+    
+    <!-- 柱子参数 -->
+    <param name="pillar_width" type="double" value="0.5"/>
+    <param name="pillar_height" type="double" value="2.0"/>
+  </node>
+  
+  <!-- 启动RViz -->
+  <node name="rviz" pkg="rviz" type="rviz"
+        args="-d $(find mockamap2)/config/rviz.rviz"/>
+</launch> 
